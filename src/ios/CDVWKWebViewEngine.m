@@ -136,7 +136,7 @@ NSTimer *timer;
         if (NSClassFromString(@"WKWebView") == nil) {
             return nil;
         }
-        if(!IsAtLeastiOSVersion(@"9.0")) {
+        if(!IsAtLeastiOSVersion(@"10.0")) {
             return nil;
         }
 
@@ -366,7 +366,7 @@ NSTimer *timer;
     // add to keyWindow to ensure it is 'active'
     [UIApplication.sharedApplication.keyWindow addSubview:self.engineWebView];
 
-    if (IsAtLeastiOSVersion(@"9.0") && [self.viewController isKindOfClass:[CDVViewController class]]) {
+    if (IsAtLeastiOSVersion(@"10.0") && [self.viewController isKindOfClass:[CDVViewController class]]) {
         wkWebView.customUserAgent = ((CDVViewController*) self.viewController).userAgent;
     }
     if (self.internalConnectionsOnly) {
@@ -499,7 +499,7 @@ static void * KVOContext = &KVOContext;
 
 - (void)addURLObserver
 {
-    if(!IsAtLeastiOSVersion(@"9.0")){
+    if(!IsAtLeastiOSVersion(@"10.0")){
         [self.webView addObserver:self forKeyPath:@"URL" options:0 context:KVOContext];
     }
 }
